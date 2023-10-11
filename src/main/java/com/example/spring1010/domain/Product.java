@@ -1,4 +1,4 @@
-package com.example.spring1010;
+package com.example.spring1010.domain;
 
 import java.util.Set;
 
