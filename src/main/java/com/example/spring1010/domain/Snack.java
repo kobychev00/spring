@@ -8,8 +8,8 @@ public class Snack extends Product {
 
     private double weight;
 
-    public Snack(String name, double price, double weight,Set <Integer> productNumber) {
-        super(name, price, productNumber);
+    public Snack(String name, double price, String code, double weight,Set <Integer> group) {
+        super(name, price, code, group);
         this.weight = weight;
     }
 

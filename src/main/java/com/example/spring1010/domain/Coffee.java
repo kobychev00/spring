@@ -3,17 +3,17 @@ package com.example.spring1010.domain;
 import java.util.Set;
 
 public class Coffee extends Product {
-    public String volume;
-    public Coffee(String name, String group, double price, String volume, Set<Integer> productNumber) {
-        super(name, price, productNumber);
+    public double volume;
+    public Coffee(String name, double price, String code, double volume, Set<Integer> group) {
+        super(name, price, code, group);
         this.volume = volume;
     }
 
-    public String getVolume() {
+    public double getVolume() {
         return volume;
     }
 
-    public void setVolume(String volume) {
+    public void setVolume(double volume) {
         this.volume = volume;
     }
 }

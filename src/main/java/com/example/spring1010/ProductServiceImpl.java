@@ -1,39 +1,61 @@
 package com.example.spring1010;
 
+import com.example.spring1010.domain.Coffee;
 import com.example.spring1010.domain.Product;
+import com.example.spring1010.domain.Snack;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
-import java.util.List;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
+@Service
+
 public class ProductServiceImpl implements ProductService {
-    Map<String, Product> products = new HashMap<>(Map.of(
+
+   private final Map<String, Product> products = new LinkedHashMap<>(Map.of(
             "grapes",
-            new Product(
-                    "Grapes", 295.0, "101",Set.of(1)),
-            "milkies",
-            new Product("Milkies", 50.0,"Л1"of(2)),
+            new Snack(
+                    "Grapes", 295.0, "101", 1.00, Set.of(1)),
+            "espresso",
+            new Coffee("Espresso", 90.0,"201", 0.2, Set.of(2)),
             "apples",
-            new Product("Apples", 89.0, Set.of(1)),
+            new Snack("Apples", 89.0, "102", 1.0, Set.of(1)),
             "juice",
-            new Product("Juice", 52, Set.of(2))
+            new Coffee("Juice", 52, "202", 0.25, Set.of(2))
     )
     );
 
-    Map<String, Integer> proffesion = Map.of(
+    private static final int MAX_SIZE = 5;
+
+    Map<String, Integer> groups = Map.of(
             "snack", 1,
             "drink", 2);
 
 
     @Override
-    public List<Product> getProductbyNumber(Set<Integer> productNumber) {
-
+    public Product add(String name, double price, String code, Set<Integer> group) {
         return null;
     }
 
     @Override
-    public void addProduct(Product product) {
+    public String getProductbyGroup(Set<Integer> group) {
+        final Product product = products.get(group);
+        if (product == null) {
+            throw new RuntimeException("Продукт не найден");
+        }
+        final String productDescription = " "
+                + product.getName() + ", "
+                + product.getPrice() + ", "
+                + product.getCode() + ", "
+                + getProductbyGroup(product.getGroup());
+        return productDescription;
+        }
 
+
+    @Override
+    public String getProductbyCode(String code) {
+        return null;
     }
 }

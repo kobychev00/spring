@@ -1,5 +1,7 @@
 package com.example.spring1010.domain;
 
+import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Product {
@@ -7,13 +9,14 @@ public class Product {
     private double price;
 
     private String code;
-    private Set<Integer> productNumber;
+    private Set<Integer> group;
 
-    public Product(String name, double price, String code, Set<Integer> productNumber) {
+    public Product(String name, double price, String code, Set<Integer> group) {
         this.name = name;
         this.price = price;
         this.code = code;
-        this.productNumber = productNumber;
+        this.group = new HashSet<>(group);
+
     }
 
     public String getCode() {
@@ -32,15 +35,16 @@ public class Product {
         return price;
     }
 
-    public Set<Integer> getProductNumber() {
-        return productNumber;
+    public Set<Integer> getGroup() {
+        return group;
     }
 
     public void setPrice(double price) {
         this.price = price;
     }
-
     public void changePrice(double price) {
             this.price = price;
         }
     }
+
+
